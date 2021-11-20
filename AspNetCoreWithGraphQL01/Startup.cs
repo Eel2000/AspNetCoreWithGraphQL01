@@ -1,3 +1,5 @@
+using AspNetCoreWithGraphQL01.Interfaces;
+using AspNetCoreWithGraphQL01.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +29,7 @@ namespace AspNetCoreWithGraphQL01
         {
 
             services.AddControllers();
+            services.AddScoped<IBookService, BookService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
