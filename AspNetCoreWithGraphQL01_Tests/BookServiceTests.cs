@@ -73,6 +73,23 @@ namespace AspNetCoreWithGraphQL01_Tests
         }
 
         [Test]
+        public void AddingWorks()
+        {
+            var b = new Book
+            {
+                Title = "Five",
+                Author = "GH",
+                Pages = 150,
+                PublicationDate = System.DateTime.Now.AddYears(-1)
+            };
+
+            var r = _bookService.addBook(b);
+            var books = _bookService.GetBooks();
+
+            Assert.AreEqual(5, books.Count());
+        }
+
+        [Test]
         public void DeleteBookDoesNotThrowException()
         {
             Assert.DoesNotThrow(() => _bookService.DeleteBook(2), "Exception Thrown when deleting book");
